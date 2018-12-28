@@ -105,25 +105,6 @@ public class PlayerInputController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-        // FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/tables.fxml"));
-        // TablesController tablesController;
-        // try {
-        //     Parent root = loader.load();
-        //     tablesController = loader.getController();
-        //     tablesController.setData(players, groupCount);
-        //
-        //     Stage stage = new Stage();
-        //     stage.setScene(new Scene(root));
-        //     stage.setResizable(false);
-        //
-        //     closeWindow();
-        //     stage.show();
-        //
-        // } catch (IOException e) {
-        //     e.printStackTrace();
-        // }
     }
 
     private void closeWindow() {
