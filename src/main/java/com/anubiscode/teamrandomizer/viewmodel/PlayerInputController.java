@@ -3,9 +3,14 @@ package main.java.com.anubiscode.teamrandomizer.viewmodel;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -84,6 +89,44 @@ public class PlayerInputController implements Initializable {
 
     @FXML
     private void randomize() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/tables.fxml"));
 
+        TablesController tablesController = new TablesController(players, groupCount);
+        loader.setController(tablesController);
+        try {
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+
+            closeWindow();
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        // FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/tables.fxml"));
+        // TablesController tablesController;
+        // try {
+        //     Parent root = loader.load();
+        //     tablesController = loader.getController();
+        //     tablesController.setData(players, groupCount);
+        //
+        //     Stage stage = new Stage();
+        //     stage.setScene(new Scene(root));
+        //     stage.setResizable(false);
+        //
+        //     closeWindow();
+        //     stage.show();
+        //
+        // } catch (IOException e) {
+        //     e.printStackTrace();
+        // }
+    }
+
+    private void closeWindow() {
+        ((Stage) teamCountBox.getScene().getWindow()).close();
     }
 }
