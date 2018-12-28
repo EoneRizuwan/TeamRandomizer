@@ -29,3 +29,5 @@ out
 .idea
 *.iml
 
+#My Temp files
+/src/main/java/com/anubiscode/teamrandomizer/temp/TempLoader.java
