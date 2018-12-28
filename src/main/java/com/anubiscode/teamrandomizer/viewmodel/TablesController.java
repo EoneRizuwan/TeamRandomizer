@@ -39,8 +39,9 @@ public class TablesController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // listViews = new ArrayList<>();
         groupListViews();
+        allocateEnableList();
+        populateListView();
     }
 
     private void groupListViews() {
@@ -52,8 +53,28 @@ public class TablesController implements Initializable {
         listViews.add(tableView6);
     }
 
+    private void allocateEnableList() {
+        for (int i = groupCounts; i < listViews.size(); i++) {
+            listViews.get(i).setDisable(true);
+        }
+    }
+
+    private void populateListView() {
+        int playerPerList = playerList.size() / groupCounts;
+        for (int i = 0; i < groupCounts; i++) {
+            ListView<String> listView = listViews.get(i);
+            for (int j = 0; j < playerPerList; j++) {
+                listView.getItems().add(getRandomPlayer());
+            }
+        }
+    }
+
     @FXML
     private void rerandomize() {
-        System.out.println(playerList);
+    }
+
+    private String getRandomPlayer() {
+        int index = random.nextInt(playerList.size());
+        return playerList.remove(index);
     }
 }
