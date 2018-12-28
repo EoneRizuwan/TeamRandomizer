@@ -5,12 +5,9 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
+import main.java.com.anubiscode.teamrandomizer.model.util.LoadWindow;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -64,6 +61,7 @@ public class PlayerInputController implements Initializable {
 
     @FXML
     private void selectedPlayerCount() {
+
         if (playerCountBox.getValue() == null) return;
         playerCount = Integer.parseInt(playerCountBox.getValue());
         counter = playerCount;
@@ -93,21 +91,7 @@ public class PlayerInputController implements Initializable {
 
         TablesController tablesController = new TablesController(players, groupCount);
         loader.setController(tablesController);
-        try {
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.setResizable(false);
 
-            closeWindow();
-            stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void closeWindow() {
-        ((Stage) teamCountBox.getScene().getWindow()).close();
+        LoadWindow.load(loader, null, counterText);
     }
 }

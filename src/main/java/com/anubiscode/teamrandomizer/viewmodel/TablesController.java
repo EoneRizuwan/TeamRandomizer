@@ -1,9 +1,12 @@
 package main.java.com.anubiscode.teamrandomizer.viewmodel;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
+import main.java.com.anubiscode.teamrandomizer.model.util.LoadWindow;
 
 import java.net.URL;
 import java.util.List;
@@ -15,6 +18,8 @@ public class TablesController implements Initializable {
     @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
     @FXML
     private ObservableList<ListView<String>> listViews;
+    @FXML
+    private JFXButton rerandBtn;
 
     private List<String> playerList;
     private Random random;
@@ -50,6 +55,8 @@ public class TablesController implements Initializable {
 
     @FXML
     private void rerandomize() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/payer_input.fxml"));
+        LoadWindow.load(loader, null, rerandBtn);
     }
 
     private String getRandomPlayer() {
