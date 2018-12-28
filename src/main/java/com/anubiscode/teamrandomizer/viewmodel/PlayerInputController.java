@@ -2,12 +2,13 @@ package main.java.com.anubiscode.teamrandomizer.viewmodel;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.text.Text;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class PlayerInputController implements Initializable {
@@ -17,15 +18,22 @@ public class PlayerInputController implements Initializable {
     @FXML
     private JFXComboBox<String> playerCountBox;
     @FXML
-    private JFXTextField playersName;
+    private JFXTextField playersTextField;
     @FXML
-    private Text counter;
+    private Text counterText;
+    @FXML
+    private Text moreText;
 
+    private List<String> players;
     private int groupCount;
+    private int playerCount;
+    private int counter;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        players = new ArrayList<>();
         initGroupCountBox();
+        counterText.setText("");
     }
 
     private void initGroupCountBox() {
@@ -39,16 +47,43 @@ public class PlayerInputController implements Initializable {
     }
 
     @FXML
-    private void selectedTeamCount(ActionEvent event) {
+    private void selectedTeamCount() {
         groupCount = Integer.parseInt(teamCountBox.getValue());
         if (playerCountBox.isDisable()) playerCountBox.setDisable(false);
         playerCountBox.setValue(null);
+        playerCount = 0;
         playerCountBox.getItems().clear();
         initPlayerCountBox();
+        players.clear();
     }
 
     @FXML
-    private void randomize(ActionEvent event) {
+    private void selectedPlayerCount() {
+        if (playerCountBox.getValue() == null) return;
+        playerCount = Integer.parseInt(playerCountBox.getValue());
+        counter = playerCount;
+        counterText.setText(counter + "");
+    }
+
+    @FXML
+    private void addPlayer() {
+        if (counter < 1) {
+            playersTextField.setText("");
+            System.out.println(players);
+            return;
+        }
+        players.add(playersTextField.getText());
+        counter--;
+        if (counter == 0) {
+            counterText.setText("");
+            moreText.setText("Pressed Randomize!");
+        }
+        else counterText.setText(counter + "");
+        playersTextField.setText("");
+    }
+
+    @FXML
+    private void randomize() {
 
     }
 }
