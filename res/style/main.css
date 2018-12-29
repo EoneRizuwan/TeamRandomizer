@@ -1,3 +1,27 @@
 * {
-    -fx-prompt-text-fill: grey;
+    -fx-primary-color: #00897B;
+    -fx-secondary-color: #263238;
+    -fx-third-color: white;
+
+    -fx-prompt-text-fill: white;
+}
+
+.main-ui {
+    -fx-background-color: -fx-primary-color;
+}
+
+.combo-box {
+    -jfx-unfocus-color: -fx-secondary-color;
+    -jfx-focus-color: -fx-third-color;
+}
+
+.text-field {
+    -jfx-unfocus-color: -fx-secondary-color;
+    -jfx-focus-color: -fx-third-color;
+    -fx-text-fill: white;
+}
+
+.button {
+    -fx-border-color: -fx-secondary-color;
+    -fx-border-radius: 20px;
 }
