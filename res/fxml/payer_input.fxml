@@ -10,45 +10,53 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="246.0" prefWidth="300.0" styleClass="main-ui" stylesheets="@../style/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.anubiscode.teamrandomizer.viewmodel.PlayerInputController">
-    <VBox alignment="CENTER" prefHeight="400.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<AnchorPane prefHeight="246.0" prefWidth="300.0" styleClass="main-ui" stylesheets="@../style/main.css"
+            xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="main.java.com.anubiscode.teamrandomizer.viewmodel.PlayerInputController">
+    <VBox alignment="CENTER" prefHeight="400.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0"
+          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <HBox alignment="CENTER" prefHeight="52.0" prefWidth="400.0">
             <VBox.margin>
-                <Insets />
+                <Insets/>
             </VBox.margin>
-            <JFXComboBox fx:id="teamCountBox" labelFloat="true" onAction="#selectedTeamCount" prefHeight="25.0" prefWidth="103.0" promptText="Teams Count">
+            <JFXComboBox fx:id="teamCountBox" labelFloat="true" onAction="#selectedTeamCount" prefHeight="25.0"
+                         prefWidth="103.0" promptText="Teams Count">
                 <HBox.margin>
-                    <Insets right="60.0" />
+                    <Insets right="60.0"/>
                 </HBox.margin>
             </JFXComboBox>
-            <JFXComboBox fx:id="playerCountBox" disable="true" labelFloat="true" layoutX="159.0" layoutY="24.0" onAction="#selectedPlayerCount" prefHeight="25.0" prefWidth="103.0" promptText="Participants Count" />
+            <JFXComboBox fx:id="playerCountBox" disable="true" labelFloat="true" layoutX="159.0" layoutY="24.0"
+                         onAction="#selectedPlayerCount" prefHeight="25.0" prefWidth="103.0"
+                         promptText="Participants Count"/>
         </HBox>
-        <JFXTextField fx:id="playersTextField" labelFloat="true" onAction="#addPlayer" promptText="Participant's Name - Pressed Enter">
+        <JFXTextField fx:id="playersTextField" labelFloat="true" onAction="#addPlayer"
+                      promptText="Participant's Name - Pressed Enter">
             <font>
-                <Font size="14.0" />
+                <Font size="14.0"/>
             </font>
             <VBox.margin>
-                <Insets left="20.0" right="20.0" top="30.0" />
+                <Insets left="20.0" right="20.0" top="30.0"/>
             </VBox.margin>
         </JFXTextField>
         <HBox alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="400.0">
             <Text fx:id="counterText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="999">
                 <HBox.margin>
-                    <Insets right="5.0" />
+                    <Insets right="5.0"/>
                 </HBox.margin>
             </Text>
-            <Text fx:id="moreText" fill="WHITE" layoutX="391.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="More">
+            <Text fx:id="moreText" fill="WHITE" layoutX="391.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="More">
                 <HBox.margin>
-                    <Insets right="20.0" />
+                    <Insets right="20.0"/>
                 </HBox.margin>
             </Text>
         </HBox>
         <JFXButton onAction="#randomize" prefHeight="44.0" prefWidth="139.0" text="Randomize Now" textFill="WHITE">
             <VBox.margin>
-                <Insets top="20.0" />
+                <Insets top="20.0"/>
             </VBox.margin>
             <font>
-                <Font size="13.0" />
+                <Font size="13.0"/>
             </font>
         </JFXButton>
     </VBox>
